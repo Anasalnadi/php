@@ -1,28 +1,35 @@
-<html>
-<head>
-<title> GBook </title>
-
-</head>
-
-<body>
-<html>
-<p> GRADUSTION BOOK </p>
-</body>
-</html>
 <?php
 session_start();
 
-$name = array($_SEESION['n']);
-$massege =array ( $_SEESION['m']);
-
-print_r($name);
-echo "<br>";
-print_r($massege);
-
-
-
+print_r($_SESSION['guests']);
 
 ?>
+
+
+<body>
+
+
+<div>
+    <p>Graduation Book</p>
+        <?php
+            if (isset($_SESSION['guests'])) {
+                $guests = $_SESSION['guests'];
+                foreach ($guests as $guest){
+        ?>
+                    <div>
+                        <span><img src="" alt=""/></span>
+                        <div>
+                            <p>From : <?=$guest['name']?></p>
+                            <p>message : <?=$guest['message']?></p>
+                        </div>
+                    </div>
+        <?php } } ?>
+
+
+
+</div>
+</body>
+
 
 
 

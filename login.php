@@ -1,3 +1,4 @@
+<?php session_start();?>
 <html>
 <head>
 <title> log in </title>
@@ -5,6 +6,14 @@
 </head>
 
 <body>
+
+<?php
+    if(isset($_GET['msg'])){ ?>
+
+        <div style="background: red"><?=$_GET['msg']?></div>
+        <?php
+    }
+?>
 <a href="msg.php"> Gues</a>
 <form action="GBook.php" method="post">
 
@@ -27,7 +36,7 @@ if(isset($_POST['s']))
 	setcookie('name',$_POST['u']);
 	setcookie('pass',$_POST['p']);
 	
-		echo '<a href= "GBook.php"></a>';
+	echo '<a href= "msg.php"></a>';
 	
 }
 	
